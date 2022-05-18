@@ -48,6 +48,34 @@ grep -wi "jane williams" names.txt
   grep -winr "jane williams" ./
   ```
 
+- Interested only in seeing the file names that contain your matchin a dir and its subdirs:
+  ```
+  grep -wirl "jane williams" ./
+
+  grep -wirc "jane williams" ./
+  ## shows also the number of matches in each file
+  ```
+
+- Piping in other commands to grep to search our history for our latest git commits:
+  ```
+  history | grep "git commit" | grep "dotfile"
+  ## look at all the history including git commit and then dotfile match
+  ```
+
+- How to do some more advance searches using regular expressions; grep uses posex REs by defual; this is also what python uses;
+  ```
+  grep "...-...-...." names.txt
+  # . means any character in linux and re
+  # look for any mathc with 3 any chars - and 3 any chars - and 4 any chars (example of phone number search)
+  ```
+
+- 
+
+
+
+
+ 
+
 
 
 
