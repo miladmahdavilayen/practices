@@ -68,9 +68,7 @@ grep -wi "jane williams" names.txt
   # . means any character in linux and re
   # look for any mathc with 3 any chars - and 3 any chars - and 4 any chars (example of phone number search)
   ```
-
-- 
-
+  
 
 
 
