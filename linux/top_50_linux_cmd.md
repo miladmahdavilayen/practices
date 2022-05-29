@@ -152,3 +152,76 @@
 - you can pause jobs like ```top``` and ```fin``` that might be taking a longer time and resume them later in your terminal.
 - By hitting  ```ctrl + Z```  while a job is performing, you may pause that job and store it in the ```jobs``` list.
 - Then to resume a job you can use ```fg``` command to resume them in the front ground or ```bg``` to resume them in background.
+
+## Compressing files:
+
+### Compress a single file
+- ```gzip``` : it will compress a file and replace it with the original file.
+- In order to keep the original file you can use: ``` gzip -k file```
+- ```gzip -kv``` : keep original file and verbose (Display the name and percentage reduction for each file compressed or decompressed.)
+- ``` gunzip``` or ```gzip -d``` will decompress a compressed file.
+
+### Group and archive multiple files:
+- ``` tar -cf file_1 file_2 file_3 archive_name.tar``` : option c is for create, and f is for when you want to provide an archive name for the group.
+- To view what's inside a tar file without unarchiving first: ``` tar -tf archive.tar```
+- To unarchive a tar file: ``` tar -xf archive_name.tar```
+
+
+## Nano text editor, internal built in text editor
+- ```nano file_name.txt```: this will open a file in the nano editro in terminal
+- You can immdeiately start making changes to the file. To save your changes, press ```ctrl + X``` to exit and type ```Y``` to save. Then you will be prompted to enter a new name for your edited file or keep the same name. If you just hit ```Enter``` it will keep the same file name.
+- To search for a word or letter in your file you can use ```ctrl + W``` and type your keywrd.
+- You can use ```ctrl + S``` as well to save the file instantly but it won't exit or make a new file name.
+- ```ctrl + G``` prints a whole manual for nano.
+- ``` crtl + K``` will cut a whole line nano and after moving the cursor to another line by ```ctrl + U``` you can paste the line that was cut.
+
+
+## Aliases
+- it allows us to define our own short custom commands
+-  ```alias la='ls -la'```: this will create an alias short for listing files that are hidden as well.
+-  ```alias``` will list all the existing aliases in your system.
+-  you can add aliases to the ```.zshrc``` or ```.bashrc``` files in the home dir to permanently keep them ther.
+- double vs single qoutes in base: when defining an alias and using a environemnt variable expansion with ```$``` in front, be careful on using single or double qoutes. Single qoutes will still keep the variable dependant on the where or what it does. Double qoutes will store a constant variable that was written into that alias when it was created. Try ```alias lscurrent='ls $PWD'``` vs ```alias lsthis="ls $PWD"``` and see the difference when you change directories.
+
+
+## xargs
+- Some of the commands in cli or linux does not work with standard inputs i.e piping. For example ```rm touch```
+- In order to be able to pass a list of arguments or names from a file to a command like rm or touch, you need to use the ```xargs``` command.
+- ``` cat file.txt | rm``` will not work
+- instead ``` cat file.txt | xargs rm``` will first store everything that's inside the file.txt into the xargs variable and then will pass it into the rm command. You can do the same thing with the touch command as well.
+- Another example: ```find . -size +1M | xargs ls -lh``` human readable list of all the files we found from the find command. It will show the infos that the ls command usually provides as well.
+
+## ln command:
+- Link in unix. Desktop shortcut on an OS. You have access to start them up.
+- We can have a file that is linked to another file. They will both be pointing to the same function or content.
+- ``` ln original.txt hardlink.txt``` this will link the hardlink file to the original file. If you change the original file it will also change the hardlink file and visa versa. They will both be modified by any change in any of them.
+- If I delete the hardlink file, the original file will stay. And same for the other way.
+- Soft link: ``` ln -s original.txt softlink.txt``` soft link has softer features on what said above.
+
+## Users and permissions: pretty important
+
+### who
+- Displays the users logged in to the system.
+- if you were an administator it will be pretty usefull
+
+### su
+- Used for switching users. You can do something on someone's elses account if you are the admin.
+- If there are other accounts you can switch with the appropriate credentials.
+-  ```ctrl + d``` to get out of the switched account or by typing ```exit```
+
+### sudo
+- run command as the root user or with elevated permissions.
+- root user is a user who basically has permission to do anything.
+- root user can change someone else's password for example.
+- to use the sudo command: you need to add ```sudo``` first before any other command. it may ask you for an admin password.
+- ```sudo nano /etc/hosts``` this an example of using sudo
+
+### passwd
+- you can use this to change someone's password.
+- ```passwd``` or ```passwd user``` or ```sudo passwd user``` and hit enter and then change your password.
+
+
+
+
+
+

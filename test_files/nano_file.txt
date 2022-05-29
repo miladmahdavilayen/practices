@@ -1,0 +1,6 @@
+hey this is milad
+I can cut this line and paste it somewhere else if I want to
+this is first file created by nano
+I am still learning to work with nano
+this looks like a really great editor
+here is where I end this file

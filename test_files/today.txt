@@ -1,0 +1,11 @@
+hello there.. this is milad adding stuff using nano editor
+Wed May 25 00:05:52 CDT 2022
+Wed May 25 00:08:47 CDT 2022
+mahdavil
+README.md
+linux
+pandas
+python_oop
+today.txt
+pandas
+hi again this is milad adding things.
