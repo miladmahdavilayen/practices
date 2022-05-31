@@ -220,8 +220,58 @@
 - you can use this to change someone's password.
 - ```passwd``` or ```passwd user``` or ```sudo passwd user``` and hit enter and then change your password.
 
+### change ownership:
+- using the ```chown``` command you can change the owner of a file or dir.
+- chang who owns a file or dir
+- the third col in the ls -la is the name of the owner of the directory for each files. for it's ```mahdavil``` for example
+- ```chown Colt Music``` if you have the right permission you will change the ownership of the "Music" dir to "Colt"
+- once you change ownership of a dir to someone else, that owner will be able to make changes to the files within that dir.
+- also to override permission to change owner you can use ```sudo chown Milad Music```
+
+### groups
+- to find which owners are within which group.
+- you can have multiple different users within a group that you can display using the ```groups``` command and manage them.
 
 
+## Understanding permissions
+
+### permissions and the file attributes
+- there are 10 characters in the first column of the ls -l command. example ```-rwxr-xr-x```
+- the first letter indicates that it's a file or a directory. if only a dash it means that it's a file and if the first letter is ```d``` it means it's directory. the sim links start with an ```l``` instead of dash or d.
+- After the first letter, we have 3 sets of 3 characters that will each display the type of ownership of the file or dir.
+- the first 3 chars are showing us the permission for the owner.
+- the second 3 chars are showing us the permission for the group.
+- and the last, will show permissions for the world/everyone else.
+- ```rwx``` r for read permission, w for write permission and x for execute permission. if instead of each of these there's a ```-``` it means the file cannot be read or written or executed depending on the location of that character.
 
 
+### How to change permissions for a file or dir:
+- ```chmod``` command: change mode command
+- ```sudo chmod mode file``` is the basic syntax
+- first thing in the mode we should specify is the who: there are 4 types: ```u   g    o    a``` respectively for user, group, others and all of the above.
+- the second thing to specify is an operator: a ``` - ``` sign will remove a permission. a ```+``` will add a permission and the ```=``` sign will set a permission and removes others.
+- the third thing to specify is the permission that we are trying to change which is either r or w or x
+- Example: ```chmod g+w file.txt``` what we are sayin here is for all the members of the group add the ```w``` write permission for the file.txt.
+- another: ```chmod a-w file.txt``` will remove the write permission for all the members for the file.txt
 
+#### chmod octals and binary alts
+
+- 
+    | Octal      | Binary | File Mode |
+    | ----------- | ----------- | ------ |
+    | 0 | 000 | --- |
+    | 1 | 001 | --x |
+    | 2 | 010 | -w- |
+    | 3 | 011 | -wx |
+    | 4 | 100 | r-- |
+    | 5 | 101 | r-x |
+    | 6 | 110 | rw- |
+    | 7 | 111 | rwx |
+
+- for example ```chmod 755 file.txt``` will grant all kinds of permissions to the owner and only read and execution permissions to the group and others.
+
+#### back to what = does with chmod
+- ```chmod a=r file.txt``` the only permission we are modifying is read for everyone and sets everything will be set to ```-```. it's a tricky one you have to be careful.
+
+#### mutltiple values on the left handside of operators:
+- ```chmod ug+r file.txt``` works for both user and group.
