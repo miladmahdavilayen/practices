@@ -1,7 +1,7 @@
 # Usefull git commands in Linux:
 
-## What is git:
-
+## What is git?
+- Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
 ## First Steps: Git version and Setting config values
 - Make sure you have git installed by: ```git version```
