@@ -105,3 +105,12 @@ Are the containers for the git. You need to initialize a new repository anytime 
 11. ```git merge feature_name```
 12. ```git push origin master```
 13. You can also go thru the process of deleting the feature branches in both local and remote if you want like explained above.
+
+# How to git pull a repo with all submodules
+1. First just clone the repo like this: ```git clone "url"```
+2. Then run this command for updating all submodules: ```git submodules update --recurse```
+
+
+# Store git credentials and password into cache
+- ```git config --global credential.username "miladmah"```
+- ```git config --global credential.helper cache --timeout <seconds>```  ==> this will cache the password for the next X seconds you input in front of the time out option.
